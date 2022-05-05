@@ -1,7 +1,7 @@
 ---
 title: go快速入门(3)——操作数据
 
-data: 2022-5-5 18:23:20
+date: 2022-5-5 18:23:20
 
 updated: 2022-5-5 18:23:20
 
@@ -140,6 +140,4 @@ x := a[len(a)-1] //内置函数len可以得到数组长度
 
 - `func FormatInt(i int64, base int) string`，返回i的base进制的字符串表示。base 必须在2到36之间，结果中会使用小写字母'a'到'z'表示大于10的数字
 
-- `func ParseInt(s string, base int, bitSize int) (i int64, err error)`，返回字符串表示的整数值，接受正负号。base指定进制（2到36），如果base为0，则会从字符串前置判断，"0x"是16进制，"0"是8进制，否则是10进制；
-  
-  bitSize指定结果必须能无溢出赋值的整数类型，0、8、16、32、64 分别代表 int、int8、int16、int32、int64
+- `func ParseInt(s string, base int, bitSize int) (i int64, err error)`，返回字符串表示的整数值，接受正负号。base指定进制（2到36），如果base为0，则会从字符串前置判断，"0x"是16进制，"0"是8进制，否则是10进制；bitSize指定结果必须能无溢出赋值的整数类型，0、8、16、32、64 分别代表 int、int8、int16、int32、int64
