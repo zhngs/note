@@ -5,8 +5,6 @@ date: 2022-5-6 10:33:20
 
 updated: 2022-5-6 10:33:20
 
-author: jiusansan
-
 tags:
 
 - go语言
@@ -127,5 +125,3 @@ categories:
       return ReadAll(f)
   }
   ```
-
-
