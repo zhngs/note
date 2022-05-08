@@ -121,7 +121,7 @@ categories:
 
 # 三.go工具
 
-## 1.go mod命令
+## 1.go mod
 
 - go mod命令提供了对模块的操作能力
   
@@ -129,6 +129,11 @@ categories:
   go mod download    # 下载依赖的module到本地cache（默认为$GOPATH/pkg/mod目录）
   go mod init        # 初始化当前文件夹, 创建go.mod文件
   ```
+
+## 2. go test
+
+- go test是对包的测试命令，在一个包中，以_test.go结尾的文件不是go build命令的编译目标，而是go test的编译目标
+- go test工具会扫描*test.go文件来寻找特殊函数，并生成一个临时的main包来调用它们，然后编译和运行，并汇报结果，最后清空临时文件
 
 # 四.创建一个go项目
 
@@ -142,5 +147,3 @@ categories:
   ```
 
 - 如果想要添加依赖包，可以在go.mod文件中添加依赖，然后执行go mod download；也可以使用go get packagename@v1.0命令，可以自动更新go.mod文件
-
-
