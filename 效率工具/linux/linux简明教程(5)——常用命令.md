@@ -77,6 +77,15 @@ categories:
   tar -xvf work.tar.gz    # 将work.tar.gz解压
   ```
 
+## 6.查看文件行数
+
+- `wc -l <文件名>`，可以打印出某个文件的行数
+  
+  ```shell
+  $ wc -l stream.ts
+  508 stream.ts
+  ```
+
 # 二.机器指标
 
 ## 1.操作系统版本
@@ -198,5 +207,41 @@ categories:
   - 想要使用vim打开文件，直接`vim <文件名>`就可以
   
   - 想要退出的时候，按下冒号键，可以看到左下角出现冒号，输入`q!`按下回车就可以退出
+
+# 四.进程
+
+## 1.查看进程
+
+- `ps -aux`可以用unix风格查看系统中所有进程，可以看到每个进程的pid是多少
+  
+  ```shell
+  USER         PID %CPU %MEM    VSZ   RSS TTY      STAT START   TIME COMMAND
+  root           1  0.0  0.2 183804  8848 ?        Ss   May09   0:07 /usr/lib/systemd/systemd --switched-root --system --deserialize 17
+  root           2  0.0  0.0      0     0 ?        S    May09   0:00 [kthreadd]
+  root           3  0.0  0.0      0     0 ?        I<   May09   0:00 [rcu_gp]
+  root           4  0.0  0.0      0     0 ?        I<   May09   0:00 [rcu_par_gp]
+  ```
+
+- 最常用的用法是`ps -aux | grep "特定信息"`，可以寻找包含特定信息的进程。`|`是shell的管道运算符，作用是将上一条命令的输出下一条命令的输入，grep命令的作用是在给定的文本中查找包含特定字符串的行，`这个用法非常重要，需要掌握`
+
+## 2.终止进程
+
+- 使用`kill -9 <进程pid>`可以向进程发送KILL信号，该信号的值为9
+
+## 3.进程cpu使用率
+
+- 使用`top`可以动态查看cpu使用率
+
+# 五.寻找特定文件
+
+## 1.find命令
+
+- `find -name "*.py"`，可以寻找当前目录以及所有子目录下面后缀为py的文件，并打印在终端上，`*`表示通配符，可以代替任何字符串
+
+- note：介绍一个`非常实用的技巧`，假如想要评估一个项目下所有py后缀的文件行数，可以使用如下命令，命令中的`反引号的意义是将反引号内部的命令先执行，然后替换成命令执行输出的结果`。find命令可以找到所有后缀名为py的文件，wc命令可以统计文件的行数，将两者组合在一起，就可以达到非常实用的效果
+  
+  ```shell
+  $ wc -l `find -name "*.py"`
+  ```
 
 
