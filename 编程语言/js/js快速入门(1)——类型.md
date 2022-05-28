@@ -156,5 +156,3 @@ let lastName = `Jingleheimerschmidt`;
   person1.sayName(); // Nicholas 
   person2.sayName(); // Greg
   ```
-
-
