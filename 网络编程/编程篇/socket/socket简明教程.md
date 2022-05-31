@@ -54,5 +54,3 @@ socket api使用起来有些麻烦，但好消息是我们可以把复杂用法�
 - 对于客户端，只需要封装一个connect函数，返回和服务端通信的句柄
 
 - 对于服务端，可以将`socket、bind、listen`函数封装为`Listener`，负责监听客户端连接，Listener调用accept返回客户端连接
-
-
