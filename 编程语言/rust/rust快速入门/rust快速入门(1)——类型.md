@@ -24,7 +24,7 @@ rust使用`let`关键字声明变量，语法为`let name: type = expression`，
 - 如果省略expression，`初始值必定在声明语句下方的某一个位置，如果rust变量没有被赋值而使用，则会报错`
 
 ```rust
-let x = 5;
+let x: i32 = 5;
 let y;
 y = 6;
 ```

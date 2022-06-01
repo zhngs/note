@@ -57,5 +57,3 @@ int accept(InetAddress* peeraddr);
 ```
 
 可以看到Socket的成员函数bindAddress和accept都是使用InetAddress的，较为便捷
-
-
