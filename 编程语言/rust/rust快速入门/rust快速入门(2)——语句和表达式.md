@@ -120,3 +120,100 @@ fn main() {
     }
 }
 ```
+
+## 5.match
+
+`match` 关键字后跟一个表达式，接下来是 `match` 的分支，一个分支有两个部分：一个模式和一些代码，`=>` 运算符将模式和将要运行的代码分开
+
+每个分支相关联的代码是一个表达式，而表达式的结果值将作为整个 `match` 表达式的返回值
+
+```rust
+enum Coin {
+    Penny,
+    Nickel,
+    Dime,
+    Quarter,
+}
+
+fn value_in_cents(coin: Coin) -> u8 {
+    match coin {
+        Coin::Penny => 1,
+        Coin::Nickel => 5,
+        Coin::Dime => 10,
+        Coin::Quarter => 25,
+    }
+}
+```
+
+匹配分支的另一个有用的功能是可以绑定匹配的模式的部分值，可从枚举成员中提取值
+
+下述代码匹配 `Coin::Quarter` 成员的分支的模式中增加了一个叫做 `state` 的变量。当匹配到 `Coin::Quarter` 时，变量 `state` 将会绑定 25 美分硬币所对应州的值
+
+```rust
+#[derive(Debug)] // 这样可以立刻看到州的名称
+enum UsState {
+    Alabama,
+    Alaska,
+}
+
+enum Coin {
+    Penny,
+    Nickel,
+    Dime,
+    Quarter(UsState),
+}
+
+fn value_in_cents(coin: Coin) -> u8 {
+    match coin {
+        Coin::Penny => 1,
+        Coin::Nickel => 5,
+        Coin::Dime => 10,
+        Coin::Quarter(state) => {
+            println!("State quarter from {:?}!", state);
+            25
+        }
+    }
+}
+```
+
+`match`支持通配模式，可以使用`_`来匹配其他情况，下述代码表示如果匹配到 3 或 7 以外的值，将无事发生，这里使用单元值`()`的意思是不会运行任何代码
+
+```rust
+fn main() {
+    let dice_roll = 9;
+    match dice_roll {
+        3 => add_fancy_hat(),
+        7 => remove_fancy_hat(),
+        _ => (),
+    }
+}
+```
+
+## 6.if let
+
+`if let`是`match`的一个语法糖，目的是来处理只匹配一个模式的值而忽略其他模式的情况
+
+```rust
+fn main() {
+    let coin = Coin::Penny;
+    let mut count = 0;
+    if let Coin::Quarter(state) = coin {
+        println!("State quarter from {:?}!", state);
+    } else {
+        count += 1;
+    }
+}
+```
+
+使用match的写法如下
+
+```rust
+fn main() {
+    let coin = Coin::Penny;
+    let mut count = 0;
+    match coin {
+        Coin::Quarter(state) => println!("State quarter from {:?}!", state),
+        _ => count += 1,
+    }
+}
+```
