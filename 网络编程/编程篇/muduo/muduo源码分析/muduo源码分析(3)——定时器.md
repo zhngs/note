@@ -37,5 +37,3 @@ TimerQueue的主要目的
 - 提供一个addTimer接口，供EventLoop使用，EventLoop使用addTimer封装了更好用的定时函数`runAt`、`runAfter`、`runEvery`
 
 - 内部有一个Timer set，负责管理所有注册到TimerQueue的Timer
-
-
