@@ -17,8 +17,6 @@ categories:
 
 # 一.变量
 
-
-
 rust使用`let`关键字声明变量，语法为`let name: type = expression`，其中type和expression可以省略
 
 - 如果省略type，则type会由expression推导出来
