@@ -1,9 +1,9 @@
 ---
 title: git简记
 
-date: 2022-7-24 16:59:20
+date: 2022-7-24 20:59:20
 
-updated: 2022-7-24 16:59:20
+updated: 2022-7-24 20:59:20
 
 tags:
 
@@ -96,5 +96,3 @@ categories:
 - 大家将更新推送到develop分支，此时自己本地的develop分支不是最新的，应该git fetch下载最新的orign/develop，然后git rebase orgin/develop，最后git push即可
 
 - 远端master分支收到保护，但是在本地的master分支上已经提交了commit，此时应该新建分支 git checkout -b feature，然后git push，最后git reset --hard orgin/master 将master退回到和远端分支一样的节点
-
-- 
