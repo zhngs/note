@@ -60,5 +60,3 @@ Linux内核目前有300多个系统调用，详细的列表可以通过syscalls�
 ```shell
 strace -tt -T -v -f -e trace=file ls
 ```
-
-
